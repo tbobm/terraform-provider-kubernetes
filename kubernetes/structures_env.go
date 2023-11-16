@@ -67,6 +67,7 @@ func expandFieldRefMap(e interface{}) map[string]interface{} {
 	in := e.(map[string]interface{})
 	expandedValues := make(map[string]interface{})
 
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["api_version"].(interface{}); ok && v != nil {
 		expandedValues["apiVersion"] = v
 	}
@@ -85,6 +86,7 @@ func expandResourceFieldMap(e interface{}) map[string]interface{} {
 	in := e.(map[string]interface{})
 	expandedValues := make(map[string]interface{})
 
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["container_name"].(interface{}); ok && v != nil {
 		expandedValues["containerName"] = v
 	}
@@ -137,15 +139,19 @@ func flattenEnvValueFromMap(e interface{}) ([]interface{}, error) {
 	in := e.(map[string]interface{})
 	expandedValues := make(map[string]interface{})
 
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["configMapKeyRef"].(interface{}); ok && v != nil {
 		expandedValues["config_map_key_ref"] = []interface{}{v}
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["fieldRef"].(interface{}); ok && v != nil {
 		expandedValues["field_ref"] = flattenFieldRefMap(v)
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["resourceFieldRef"].(interface{}); ok && v != nil {
 		expandedValues["resource_field_ref"] = flattenResourceFieldMap(v)
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["secretKeyRef"].(interface{}); ok && v != nil {
 		expandedValues["secret_key_ref"] = []interface{}{v}
 	}
@@ -161,9 +167,11 @@ func flattenFieldRefMap(e interface{}) []interface{} {
 	in := e.(map[string]interface{})
 	expandedValues := make(map[string]interface{})
 
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["apiVersion"].(interface{}); ok && v != nil {
 		expandedValues["api_version"] = v
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["fieldPath"].(interface{}); ok && v != nil {
 		expandedValues["field_path"] = v
 	}
@@ -179,12 +187,15 @@ func flattenResourceFieldMap(e interface{}) []interface{} {
 	in := e.(map[string]interface{})
 	expandedValues := make(map[string]interface{})
 
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["containerName"].(interface{}); ok && v != nil {
 		expandedValues["container_name"] = v
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["divisor"].(interface{}); ok && v != nil {
 		expandedValues["divisor"] = v
 	}
+	//lint:ignore S1040 Keep explicit type assertion.
 	if v, ok := in["resource"].(interface{}); ok && v != nil {
 		expandedValues["resource"] = v
 	}
