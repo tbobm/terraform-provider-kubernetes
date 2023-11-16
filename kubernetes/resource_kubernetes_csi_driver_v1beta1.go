@@ -32,7 +32,7 @@ func resourceKubernetesCSIDriverV1Beta1() *schema.Resource {
 			"metadata": metadataSchema("csi driver", true),
 			"spec": {
 				Type:        schema.TypeList,
-				Description: fmt.Sprint("Spec of the CSIDriver"),
+				Description: "Spec of the CSIDriver",
 				Optional:    true,
 				MaxItems:    1,
 				Elem: &schema.Resource{
