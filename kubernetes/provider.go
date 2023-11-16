@@ -464,7 +464,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData, terraformVer
 	if logging.IsDebugOrHigher() {
 		log.Printf("[DEBUG] Enabling HTTP requests/responses tracing")
 		cfg.WrapTransport = func(rt http.RoundTripper) http.RoundTripper {
-			return logging.NewTransport("Kubernetes", rt)
+			return logging.NewSubsystemLoggingHTTPTransport("Kubernetes", rt)
 		}
 	}
 
