@@ -14,7 +14,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-	api "k8s.io/api/core/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -202,11 +201,11 @@ func resourceKubernetesServiceSchemaV1() map[string]*schema.Schema {
 									Type:        schema.TypeString,
 									Description: "The IP protocol for this port. Supports `TCP` and `UDP`. Default is `TCP`.",
 									Optional:    true,
-									Default:     string(api.ProtocolTCP),
+									Default:     string(corev1.ProtocolTCP),
 									ValidateFunc: validation.StringInSlice([]string{
-										string(api.ProtocolTCP),
-										string(api.ProtocolUDP),
-										string(api.ProtocolSCTP),
+										string(corev1.ProtocolTCP),
+										string(corev1.ProtocolUDP),
+										string(corev1.ProtocolSCTP),
 									}, false),
 								},
 								"target_port": {
