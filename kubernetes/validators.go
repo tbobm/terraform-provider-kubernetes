@@ -121,9 +121,9 @@ func validatePortName(value interface{}, key string) (ws []string, es []error) {
 	return
 }
 func validatePortNumOrName(value interface{}, key string) (ws []string, es []error) {
-	switch value.(type) {
+	switch t := value.(type) {
 	case string:
-		intVal, err := strconv.Atoi(value.(string))
+		intVal, err := strconv.Atoi(t)
 		if err != nil {
 			return validatePortName(value, key)
 		}
