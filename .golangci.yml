@@ -4,7 +4,7 @@ run:
 issues:
   max-per-linter: 0
   max-same-issues: 0
- 
+
 linters:
   disable-all: true
   enable:
@@ -19,4 +19,4 @@ linters-settings:
   gosimple:
     checks:
       - all
-      - '-S1040' # https://staticcheck.dev/docs/checks/#S1040
+      - '-S1040' # Type assertion to current type: https://staticcheck.dev/docs/checks/#S1040
